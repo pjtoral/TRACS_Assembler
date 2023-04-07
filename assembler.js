@@ -184,7 +184,7 @@ async function assembler(filepath) {
 
         org += 2;
       } else {
-        console.error(`Error: unrecognized instruction "${instruction}"`);
+        console.error(`Error: unrecognized instruction \"${instruction}\"`);
       }
     }
   }

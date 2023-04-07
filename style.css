@@ -44,7 +44,7 @@ main{
 }
 
 main .input-area{
-    width: 55%;
+    width: 75%;
     height: 99%;
     background-color: transparent;
     color: white;
@@ -58,7 +58,7 @@ main .input-area{
 
 main .output-area{
     display: inline-block;
-    width: 45%;
+    width: 75%;
     height: 99%;
     background-color: transparent;
     color: white;
@@ -85,7 +85,11 @@ main .compiler button{
     margin-right: 10PX;
     padding-top: 10px;
 }
-
+button:hover {
+    border-radius: 100%;
+    background-color: cornflowerblue;
+    cursor: pointer;
+}
 
 textarea::-webkit-scrollbar {
     width: 0.65em;
