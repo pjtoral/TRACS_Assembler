@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/path/to/styles/default.min.css">
+    <script src="/path/to/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style type="text/css">
+		.highlight {
+			color: rgb(34, 142, 156);
+		}
+	</style>
+    <title>TRACS Assembler</title>
+</head>
+<body>
+    <div class="title-bar">
+        <span id="documentName" class="document-name">no file selected</span>
+
+        <div class="menu-section">
+            <button id="exitPane"><span class="material-symbols-outlined">close</span></button>
+        </div>
+    </div>
+    <main>
+        <pre><code class="language-x86 assembly"><textarea id="inputArea" class="input-area" disabled></textarea></code></pre>
+        <div class="compiler">
+            <button id="compile"><span class="material-symbols-outlined">play_arrow</span></button>
+            <button id="export"><span class="material-symbols-outlined">export_notes</span></button>
+            <button id="fopen" onclick="highlightKeywords"><span class="material-symbols-outlined">open_in_browser</span></button>
+            <button id="fcreate"><span class="material-symbols-outlined">note_add</span></button>
+            <button id="fsave"><span class="material-symbols-outlined">save</span></button>
+        </div>
+        <textarea id="outputArea" class="output-area" disabled></textarea>
+        <script>
+            function highlightKeywords() {
+                var codeTextArea = document.getElementById("inputArea");
+                var code = codeTextArea.value;
+                var keywords = ["MOV", "ADD", "SUB", "CMP", "JMP", "LOOP", "CALL", "RET"];
+                for (var i = 0; i < keywords.length; i++) {
+                    var keywordRegex = new RegExp("\b" + keywords[i] + "\b", "g");
+                    code = code.replace(keywordRegex, "<span class='highlight'>" + keywords[i] + "</span>");
+                }
+                codeTextArea.innerHTML = code;
+            }
+        </script>
+    </main>
+</body>
+</html>
+
