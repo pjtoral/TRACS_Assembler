@@ -1,16 +1,16 @@
-ORG 0x10
+ORG 0x00
 start:   WB 0x55		 ; write 0x05 to MBR
          WM 0x400	 	 ; write data on MBR to memory at address 0x400
          WB 0x05	 	 ; write 0x03 to MBR
          WACC	 	         ; write data on MBR to memory at address 0x401
          WB 0x08	 	 ; read address 0x400, store data to MBR
-         ADD	 	 	 ; write MBR to ACC (via BUS)
+         ASS	 	 	 ; write MBR to ACC (via BUS)
          RM 0x400	 	 ; read data at memory address 0x401, store to MBR
     	 MUL	 	 	 ; add ACC to MBR (through BUS)
     	 RACC	 	 	 ; read ACC, store to MBR
     	 WM 0x401	 	 ; write data on MBR to memory address 0x402
     	 WIB 0x0B	 	 ; write 0x00 to MBR
-    	 WIO 0x000	 	 ; read address 0x402, store data to MBR
+    	 RM 0x000	 	 ; read address 0x402, store data to MBR
     	 WB 0x10	 	 ; write MBR to ACC (via BUS)
     	 SUB	 	         ; write 0x05 to MBR
          RACC	 	 	 ; MBR = 0x01

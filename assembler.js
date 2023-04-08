@@ -131,7 +131,9 @@ async function assembler(filepath) {
   let labelsMap = storeLabels(lines, org);
 
   if (validOrg(org)) {
+    let i = 0;
     for (const line of lines) {
+      i++;
       if (line.includes("ORG") || line.includes("org") || line === "") {
         continue;
       }
@@ -184,8 +186,10 @@ async function assembler(filepath) {
 
         org += 2;
       } else {
-        console.error(`Error: unrecognized instruction \"${instruction}\"`);
+        result.push(`Error: unrecognized instruction \"${instruction}\" on line ${i}`);
+        break;
       }
+      
     }
   }
   return result.join("\n");
