@@ -6,35 +6,62 @@ body{
     flex-direction: column;
     height: 100vh;
     font-family: 'Fira Code', monospace;
+
 }
 
 .title-bar{
-    height: 50px;
+    height: 30px;
     width: 100%;
-    background-color: rgba(91, 146, 179, 0.767);
-    -webkit-app-region: drag;
+    background-color: #5b92b3c4;
+    -webkit-app-region: drag;  
+    user-select: all;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
-.title-bar .document-name,
-.title-bar .menu-section{
+.title-bar IMG{
+    margin-left: 10px;
+    height: 75%;
+    width: auto;
+    align-items: center;
+    justify-content: flex-start;
+}
+.title-bar p{
+    color: rgb(218, 217, 217);
+    margin-left: 10px;
+    margin-top: 13px;
+
+}
+.title-bar .document-name{
+    margin-left: 80%;
     margin-right: 10px;
 }
-
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 20
+  }
 
 .menu-section button{
     background-color: transparent;
     border: none;
     outline: none;
-
+    -webkit-app-region: no-drag;
 }
 
-.material-symbols-outlined{
-    height: 10px;
-    width: auto;
+.minimize{
+    margin-left: 25px;
+    margin-bottom: 5px;
 }
+.exit{
+    margin-top: 5px;
+    position: absolute;
+    
+}
+
 
 main{
     flex: 1;
@@ -54,6 +81,7 @@ main .input-area{
     padding-left: 10px;
     border-radius: 5px;
     font-family: 'Fira Code', monospace;
+    font-size: small;
 }
 
 main .output-area{
@@ -67,6 +95,7 @@ main .output-area{
     padding-left: 10px;
     border-radius: 5px;
     font-family: 'Fira Code', monospace;
+    font-size: small;
 }
 
 main .compiler{
@@ -84,11 +113,6 @@ main .compiler button{
     margin-left: 10px;
     margin-right: 10PX;
     padding-top: 10px;
-}
-button:hover {
-    border-radius: 100%;
-    background-color: cornflowerblue;
-    cursor: pointer;
 }
 
 textarea::-webkit-scrollbar {

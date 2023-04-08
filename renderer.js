@@ -2,8 +2,8 @@ const { ipcRenderer} = require("electron");
 const path = require("path");
 
 window.addEventListener("DOMContentLoaded", () => {
+
     const el = {
-        exitPane: document.getElementById("exitPane"),
         compile: document.getElementById("compile"),
         documentName: document.getElementById("documentName"),
         fopen: document.getElementById("fopen"),
@@ -12,13 +12,19 @@ window.addEventListener("DOMContentLoaded", () => {
         fsave: document.getElementById("fsave"),
         inputArea: document.getElementById("inputArea"),
         outputArea: document.getElementById("outputArea"),
+        exitBtn: document.getElementById("exitBtn"),
+        minimize: document.getElementById("minimize"),
     };
 
-    /*buggy only works when header is shown*/
-    el.exitPane.addEventListener("click", () => {
+    //exit
+    el.exitBtn.addEventListener("click", () => {
         ipcRenderer.send("close-app");
     });
 
+    //minimize
+    el.minimize.addEventListener("click", () => {
+        ipcRenderer.send("minimize");
+    });
 
 
 
@@ -76,7 +82,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // For saving input in Text area
     el.fsave.addEventListener("click" , () => {
+       if(inputArea.value != null)
+       {
         ipcRenderer.send("file-content-updated", inputArea.value);
+       }
+       
     });
 
 });
