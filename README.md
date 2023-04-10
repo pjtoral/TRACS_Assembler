@@ -1,6 +1,6 @@
 # Assemblee TRACS Assembler Software Design Document
 
-Authors: *Jhury Kevin Lastre  |  Paul John Toral  |  Danica Marie Dumalagan*
+Authors: *Jhury Kevin Lastre  |  Paul John Toral  
 
 <aside>
 💡 This document explains how the TRACS Assembler software translates assembly language into machine code for the TRACS architecture. It covers the assembler's goals, architecture, data input, and interface design. The assembler uses Electron.js and Node.js and has a client-server architecture with a Model-View-Controller pattern.
